@@ -8,13 +8,15 @@ Contact [Masa](https://t.me/DarkKnightArabian).
 - Valid credentials are saved locally in `masa_hits.txt`.
 ---
 
-# For Linux / Termux
+#For Linux / Termux
 
 ```python
 
 apt update - y
 
 apt upgrade -y
+
+apt install nano -y
 
 apt install python3
 
@@ -30,6 +32,12 @@ cd Hotmail-Checker
 
 pip install -r requirements.txt
 
+Telegram Creat Bot @BotFather  And Copy Token
+
+To Get Your id @ScanIDBot And Copy Id
+
+nano masa.py 
+
 python masa.py
 
 or 
@@ -38,7 +46,7 @@ python3 masa.py
 ```
 ## My Information
 
-[WEBSITE](http://www.arabiandarkknight.giize.com)
+[WEBSITE](http://www.arabiandarkknight.giize.com
 [TELEGRAM CONTACT](https://t.me/DarkKnightArabian)
 [YOUTUBE CHANNEL](https://t.me/ArabianDarkKnight)
 [GITHUB PROFILE](https://github.com/ArabianDarkKnight)
