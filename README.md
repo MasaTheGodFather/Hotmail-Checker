@@ -1,6 +1,5 @@
 # Arabian Dark Knight
 
-## By Masa
 Contact [Masa](https://t.me/DarkKnightArabian).
 ---
 ## Features
@@ -37,4 +36,9 @@ or
 
 python3 masa.py
 
+## My Information
 
+[WEBSITE](http://www.arabiandarkknight.giize.com
+[TELEGRAM CONTACT](https://t.me/DarkKnightArabian)
+[YOUTUBE CHANNEL](https://t.me/ArabianDarkKnight)
+[GITHUB PROFILE](https://github.com/ArabianDarkKnight)
