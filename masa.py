@@ -13,8 +13,8 @@ mail = MailHub()
 write_lock = threading.Lock()
 
 
-TELEGRAM_BOT_TOKEN = '7600065243:AAGfOhhAML68f5p1dAOiNRdj5gqhzYLQxTg'
-TELEGRAM_CHAT_ID = '7957784778'
+TELEGRAM_BOT_TOKEN = 'TELEGRAM_BOT_TOKEN'
+TELEGRAM_CHAT_ID = 'TELEGRAM_CHAT_ID'
 
 def validate_line(line):
     parts = line.strip().split(":")
