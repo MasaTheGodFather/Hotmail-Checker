@@ -1,0 +1,4 @@
+requests
+colorama
+concurrent.futures; python_version < "3.9"
+
