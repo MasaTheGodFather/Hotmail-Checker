@@ -7,14 +7,32 @@
 - Valid credentials are saved locally in `masa_hits.txt`.
 ---
 
+#For Linux / Termux
+
 ```python
-import foobar
 
-# returns 'words'
-foobar.pluralize('word')
+apt update - y
 
-# returns 'geese'
-foobar.pluralize('goose')
+apt upgrade -y
 
-# returns 'phenomenon'
-foobar.singularize('phenomena')
+apt install python3
+
+apt install python
+
+apt install pip
+
+apt install pip3
+
+git clone https://github.com/ArabianDarkKnight/Hotmail-Checker
+
+cd Hotmail-Checker
+
+pip install -r requirements.txt
+
+python masa.py
+
+or 
+
+python3 masa.py
+
+
