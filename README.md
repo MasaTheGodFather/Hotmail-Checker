@@ -12,7 +12,7 @@ Contact [Masa](https://t.me/DarkKnightArabian).
 
 ```python
 
-apt update - y
+apt update -y
 
 apt upgrade -y
 
