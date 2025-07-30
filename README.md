@@ -8,7 +8,7 @@ Contact [Masa](https://t.me/DarkKnightArabian).
 - Valid credentials are saved locally in `masa_hits.txt`.
 ---
 
-#For Linux / Termux
+# For Linux / Termux
 
 ```python
 
