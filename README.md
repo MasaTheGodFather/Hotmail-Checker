@@ -1,5 +1,7 @@
 # Arabian Dark Knight
+
 ## By Masa
+Contact [Masa](https://t.me/DarkKnightArabian).
 ---
 ## Features
 - Multithreaded login attempts for efficient processing.
