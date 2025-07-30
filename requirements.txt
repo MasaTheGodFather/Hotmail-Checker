@@ -1,4 +1,4 @@
 requests
 colorama
+pyfiglet
 concurrent.futures; python_version < "3.9"
-
