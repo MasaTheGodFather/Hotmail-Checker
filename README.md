@@ -18,13 +18,15 @@ apt upgrade -y
 
 apt install nano -y
 
-apt install python3
+apt install git -y
 
-apt install python
+apt install python3 -y
 
-apt install pip
+apt install python -y
 
-apt install pip3
+apt install pip -y
+
+apt install pip3 -y
 
 git clone https://github.com/ArabianDarkKnight/Hotmail-Checker
 
