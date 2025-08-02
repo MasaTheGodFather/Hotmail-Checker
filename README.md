@@ -1,4 +1,4 @@
-# Arabian Dark Knight
+# Arabian Dark Knight 🇪🇬
 
 Contact [Masa](https://t.me/DarkKnightArabian).
 ---
