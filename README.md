@@ -1,4 +1,4 @@
-# Arabian Dark Knight 🇪🇬
+# Arabian Dark Knight - EGYPT SUPER POWER 🇪🇬
 
 Contact [Masa](https://t.me/DarkKnightArabian).
 ---
