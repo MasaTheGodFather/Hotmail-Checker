@@ -5,6 +5,7 @@ Contact [Masa](https://t.me/DarkKnightArabian).
 ## Features
 - Multithreaded login attempts for efficient processing.
 - Proxy support for safer and more reliable requests.
+- Send To Bot Telegram.
 - Valid credentials are saved locally in `masa_hits.txt`.
 ---
 
@@ -16,13 +17,9 @@ apt update -y
 
 apt upgrade -y
 
-apt install nano -y
-
 apt install git -y
 
 apt install python3 -y
-
-apt install python -y
 
 apt install pip -y
 
@@ -33,16 +30,6 @@ git clone https://github.com/ArabianDarkKnight/Hotmail-Checker
 cd Hotmail-Checker
 
 pip install -r requirements.txt
-
-Telegram Creat Bot @BotFather  And Copy Token
-
-To Get Your id @ScanIDBot And Copy Id
-
-nano masa.py 
-
-python masa.py
-
-or 
 
 python3 masa.py
 ```
