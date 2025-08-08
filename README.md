@@ -1,6 +1,6 @@
-# Arabian Dark Knight 🇪🇬
+# Masa The God Father
 
-Contact [Masa](https://t.me/DarkKnightArabian).
+Contact [MASA](https://t.me/MasaTheBoss).
 ---
 ## Features
 - Multithreaded login attempts for efficient processing.
@@ -25,7 +25,7 @@ apt install pip -y
 
 apt install pip3 -y
 
-git clone https://github.com/ArabianDarkKnight/Hotmail-Checker
+git clone https://github.com/MasaTheGodFather/Hotmail-Checker
 
 cd Hotmail-Checker
 
@@ -35,7 +35,7 @@ python3 masa.py
 ```
 ## My Information
 
-[WEBSITE](http://www.arabiandarkknight.giize.com)
-[TELEGRAM CONTACT](https://t.me/DarkKnightArabian)
-[YOUTUBE CHANNEL](https://t.me/ArabianDarkKnight)
-[GITHUB PROFILE](https://github.com/ArabianDarkKnight)
+[WEBSITE](https://masathegodfather.rf.gd/?i=1)
+[TELEGRAM CONTACT](https://t.me/MasaTheBoss)
+[YOUTUBE CHANNEL](https://www.youtube.com/@MasaTheGodFather)
+[GITHUB PROFILE](https://github.com/MasaTheGodFather)
